@@ -1,0 +1,36 @@
+﻿# System
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Build
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Node
+node_modules/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Maven/Gradle
+**/target/
+**/.gradle/
+
+# Allow sub-project .gitignore
+!*/.gitignore
