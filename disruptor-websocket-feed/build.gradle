@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.portfolio'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    implementation 'com.lmax:disruptor:4.0.0'
+    implementation 'org.eclipse.jetty:jetty-server:11.0.20'
+    implementation 'org.eclipse.jetty.websocket:websocket-jetty-server:11.0.20'
+    implementation 'org.eclipse.jetty.websocket:websocket-jetty-api:11.0.20'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
+    testImplementation 'org.eclipse.jetty.websocket:websocket-jetty-client:11.0.20'
+
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
+}
+
+application {
+    mainClass = 'com.portfolio.priceserver.PriceServer'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
